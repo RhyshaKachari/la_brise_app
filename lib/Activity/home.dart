@@ -8,10 +8,20 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  void timer(){
+    //process -  5 second
+    Future.delayed(Duration(seconds: 3) , (){
+      print("ALARM IS RINGING");
+    });
+    print("You can do other stuff too");
+  }
+
   int counter = 1;
   @override
   void initState() {
     super.initState();
+    timer();
     print("This is an init state");
   }
   @override
