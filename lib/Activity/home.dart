@@ -8,20 +8,27 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+String username = "" ;
 
-  void timer(){
-    //process -  5 second
-    Future.delayed(Duration(seconds: 3) , (){
-      print("ALARM IS RINGING");
+//Async = Functions Start But Return some delayed
+  //Future.delayed - Function start after some delayed
+  void getData() async{
+    //process
+   await Future.delayed(Duration(seconds: 2),(){
+      username = "Dhruv";
     });
-    print("You can do other stuff too");
+    print("$username");
   }
 
+void showData(){
+   print("$username");
+}
   int counter = 1;
   @override
   void initState() {
     super.initState();
-    timer();
+    getData();
+    // showData();
     print("This is an init state");
   }
   @override
