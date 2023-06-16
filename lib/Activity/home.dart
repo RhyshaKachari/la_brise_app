@@ -12,23 +12,24 @@ String username = "" ;
 
 //Async = Functions Start But Return some delayed
   //Future.delayed - Function start after some delayed
-  void getData() async{
+  void getData()  {
     //process
-   await Future.delayed(Duration(seconds: 2),(){
+    Future.delayed(Duration(seconds: 2),(){
       username = "Dhruv";
     });
-    print("$username");
+    // print("$username");
   }
 
-void showData(){
-   print("$username");
+void showData() async {
+    await getData();
+    print("$username");
 }
   int counter = 1;
   @override
   void initState() {
     super.initState();
     getData();
-    // showData();
+    showData();
     print("This is an init state");
   }
   @override
