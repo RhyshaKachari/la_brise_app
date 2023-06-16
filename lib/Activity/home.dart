@@ -12,9 +12,9 @@ String username = "" ;
 
 //Async = Functions Start But Return some delayed
   //Future.delayed - Function start after some delayed
-  void getData()  {
+  void getData() async{
     //process
-    Future.delayed(Duration(seconds: 2),(){
+   await Future.delayed(Duration(seconds: 2),(){
       username = "Dhruv";
     });
     // print("$username");
