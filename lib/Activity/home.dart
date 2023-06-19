@@ -1,4 +1,8 @@
+import 'dart:convert';
+import 'package:http_parser/http_parser.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:flutter_config/flutter_config.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -13,23 +17,20 @@ String username = "" ;
 //Async = Functions Start But Return some delayed
   //Future.delayed - Function start after some delayed
   void getData() async{
-    //process
-   await Future.delayed(Duration(seconds: 2),(){
-      username = "Dhruv";
-    });
-    // print("$username");
+    String api_url = await FlutterConfig.get('API_URL');
+    final response = await http.get(Uri.parse(api_url));
+      Map data =  jsonDecode(response.body);
+      Map temp_data = data['main'];
+      double temp = temp_data['temp'];
+      print(temp);
+
   }
 
-void showData() async {
-    await getData();
-    print("$username");
-}
   int counter = 1;
   @override
   void initState() {
     super.initState();
     getData();
-    showData();
     print("This is an init state");
   }
   @override
