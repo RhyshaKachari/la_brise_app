@@ -10,11 +10,30 @@ class Loading extends StatefulWidget {
 
 class _LoadingState extends State<Loading> {
 
+  late String temp;
+  late String hum ;
+  late String air_speed ;
+  late String des;
+  late String main;
 
   void startApp()async{
     worker instance = worker(location: "Mumbai");
     await instance.getData();
-    print(instance.air_speed);
+
+    temp = instance.temp ;
+    hum = instance.humidity ;
+    air_speed = instance.air_speed ;
+    des = instance.description;
+    main = instance.main ;
+
+    Navigator.pushReplacementNamed(context, '/home' , arguments: {
+      "temp_value" : temp,
+      "hum_value" : hum,
+      "air_speed_value" : air_speed ,
+      "des_value" : des ,
+      "main_value" : main
+    });
+
   }
   @override
   void initState() {
@@ -26,11 +45,7 @@ class _LoadingState extends State<Loading> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(children: <Widget>[
-          ElevatedButton.icon(onPressed:() {
-            Navigator.pushNamed(context, "/home");
-          }, icon: Icon(Icons.add_to_home_screen), label: Text("Go to Home"))
-        ],),
+        child: Text("Loading"),
       ),
     );
   }
