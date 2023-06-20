@@ -50,7 +50,7 @@ String username = "" ;
             onPressed: () => setState(() {
             }),
           ),
-          Text(info["temp_value"]),
+          // Text(info["temp_value"]),
         ],
       )
       ,
