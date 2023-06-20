@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_config/flutter_config.dart';
 import 'package:la_brise/Worker/worker.dart';
+// import 'package:gradient_app_bar/gradient_app_bar.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -60,7 +61,21 @@ class _HomeState extends State<Home> {
           backgroundColor: Colors.black,
         ),
       ),
+      
       // backgroundColor: Colors.black,
+      // appBar: PreferredSize(
+      //   preferredSize: Size.fromHeight(0),
+      //   child: GradientAppBar(
+      //     gradient: LinearGradient(
+      //       colors:[
+      //         Colors.blue,
+      //         Colors.pinkAccent
+      //       ] ,
+      //       begin: Alignment.topRight,
+      //       end: Alignment.bottomLeft
+      //     ) ,
+      //   ),
+      // ),
       body: SafeArea(
         child: Container(
           decoration: BoxDecoration(
