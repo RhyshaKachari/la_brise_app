@@ -39,6 +39,7 @@ String username = "" ;
   }
   @override
   Widget build(BuildContext context) {
+    final info = ModalRoute.of(context)!.settings.arguments;
     return Scaffold(
       appBar: AppBar(
         title: Text("Home Activity"),
@@ -49,7 +50,7 @@ String username = "" ;
             onPressed: () => setState(() {
             }),
           ),
-          Text("Nothing rn"),
+          Text(info["temp_value"]),
         ],
       )
       ,
