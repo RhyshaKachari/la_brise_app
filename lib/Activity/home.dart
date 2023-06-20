@@ -46,9 +46,23 @@ String username = "" ;
     final _random = new Random();
     var city = city_name[_random.nextInt(city_name.length)];
     return Scaffold(
-      backgroundColor: Colors.black,
+      // backgroundColor: Colors.black,
       body: SafeArea(
         child: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              // stops: [
+              //   0.8,
+              //   0.9,
+              // ],
+              colors: [
+                Colors.black,
+                Colors.pink
+              ]
+            ),
+          ),
           child: Column(
             children: [
               Container( // Search wala container
@@ -56,7 +70,7 @@ String username = "" ;
                 padding: EdgeInsets.symmetric(horizontal: 8),
                 margin: EdgeInsets.symmetric(horizontal: 24,vertical: 20),
                 decoration: BoxDecoration(
-                  color: Colors.grey,
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(24)
                 ),
                 child: Row(
