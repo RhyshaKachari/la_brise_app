@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 import 'package:http_parser/http_parser.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -39,21 +40,48 @@ String username = "" ;
   }
   @override
   Widget build(BuildContext context) {
-    final info = ModalRoute.of(context)!.settings.arguments;
+
+    // final info = ModalRoute.of(context)!.settings.arguments;
+    var city_name = ["Mumbai" , "Delhi" , "Chennai" , "Dhar", "Indore","Guwahati"];
+    final _random = new Random();
+    var city = city_name[_random.nextInt(city_name.length)];
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Home Activity"),
-      ) ,
-      body: Column(
-        children: <Widget>[
-          FloatingActionButton(
-            onPressed: () => setState(() {
-            }),
+      backgroundColor: Colors.black,
+      body: SafeArea(
+        child: Container(
+          child: Column(
+            children: [
+              Container( // Search wala container
+                // color: Colors.grey,
+                padding: EdgeInsets.symmetric(horizontal: 8),
+                margin: EdgeInsets.symmetric(horizontal: 24,vertical: 20),
+                decoration: BoxDecoration(
+                  color: Colors.grey,
+                  borderRadius: BorderRadius.circular(24)
+                ),
+                child: Row(
+                  children: [
+                    GestureDetector(
+                      onTap: (){
+                        print("Search Me");
+                      },
+                      child: Container(child: Icon(Icons.search , color: Colors.pink,) , margin: EdgeInsets.fromLTRB(3, 0, 7, 0),),
+                    ),
+                    Expanded(child: TextField(
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: "Search $city",
+                      ),
+                    )),
+
+                  ],
+                ),
+              )
+
+            ],
           ),
-          // Text(info["temp_value"]),
-        ],
-      )
-      ,
+        ),
+      ) ,
     );
   }
 }
