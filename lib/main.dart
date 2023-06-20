@@ -9,6 +9,7 @@ void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await FlutterConfig.loadEnvVariables();
  runApp(MaterialApp(
+   debugShowCheckedModeBanner: false,
     routes: {
       "/" : (context) => Loading(),
       "/home" : (context) => Home(),
