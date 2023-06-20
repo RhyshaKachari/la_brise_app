@@ -54,6 +54,12 @@ class _HomeState extends State<Home> {
     final _random = new Random();
     var city = city_name[_random.nextInt(city_name.length)];
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(0),
+        child: AppBar(
+          backgroundColor: Colors.black,
+        ),
+      ),
       // backgroundColor: Colors.black,
       body: SafeArea(
         child: Container(
