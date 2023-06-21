@@ -17,8 +17,8 @@ class _LoadingState extends State<Loading> {
   // late String main;
   // late String icon ;
 
-  var city_name = "Guwahati";
-  void startApp()async{
+  var city_name = "Mumbai";
+  void startApp(String city)async{
     worker instance = worker(location: city_name);
     await instance.getData();
 
@@ -40,11 +40,17 @@ class _LoadingState extends State<Loading> {
   @override
   void initState() {
     // TODO: implement initState
-    startApp();
+
     super.initState();
   }
   @override
   Widget build(BuildContext context) {
+    final search = ModalRoute.of(context)!.settings.arguments as Map?;
+    // city_name = search?['searchText'];
+    if(search?.isNotEmpty ?? false){
+      city_name = search?['searchText'];
+    }
+    startApp(city_name);
     return Scaffold(
       body: Center(
       child: Column(
