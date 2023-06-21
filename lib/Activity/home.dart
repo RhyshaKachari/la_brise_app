@@ -45,6 +45,18 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     // final info = ModalRoute.of(context)!.settings.arguments;
+    final info = ModalRoute.of(context)!.settings.arguments as Map;
+    String temp = (((info['temp_value']).toString()).substring(0,4));
+    // String icon = (info['icon_value']).toString() ;
+    // String getCity = info['city_value'];
+    print("hello");
+    print(info['icon_value']) ;
+    String icon = info['icon_value'];
+    String getcity = info['city_value'];
+    String hum = info['hum_value'];
+    String air = (((info['air_speed_value']).toString()).substring(0,4));
+    String des = info['des_value'];
+    print(hum);
     var city_name = [
       "Mumbai",
       "Delhi",
@@ -131,17 +143,17 @@ class _HomeState extends State<Home> {
                           borderRadius: BorderRadius.circular(14),
                           color: Colors.white.withOpacity(0.5)),
                       margin: EdgeInsets.symmetric(horizontal: 25),
-                      padding: EdgeInsets.all(26),
+                      padding: EdgeInsets.all(10),
                       child: Row(
                         children: [
-                          // Image.network(""),
+                          Image.network("https://openweathermap.org/img/wn/$icon@2x.png"),
                           Column(
                             children: [
-                              Text("Scattered Clouds", style: TextStyle(
+                              Text("$des", style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
                               ),),
-                              Text("In Ahmedabad",style: TextStyle(
+                              Text("$getcity",style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
                               ),),
@@ -157,7 +169,7 @@ class _HomeState extends State<Home> {
                  children: [
                    Expanded(
                     child: Container(
-                      height: 225,
+                      height: 200,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(14),
                           color: Colors.white.withOpacity(0.5)),
@@ -170,7 +182,7 @@ class _HomeState extends State<Home> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text("41" , style: TextStyle(fontSize: 70),),
+                              Text("$temp" , style: TextStyle(fontSize: 70),),
                               Text("C" , style: TextStyle(fontSize: 30),)
                             ],
                           )
@@ -201,7 +213,7 @@ class _HomeState extends State<Home> {
             ],
           ),
           SizedBox(height: 20,),
-          Text("20.9", style: TextStyle(
+          Text("$air", style: TextStyle(
             fontSize: 40,
             fontWeight: FontWeight.bold
           ),),
@@ -227,7 +239,7 @@ class _HomeState extends State<Home> {
                             ],
                           ),
                           SizedBox(height: 20,),
-                          Text("60", style: TextStyle(
+                          Text("$hum", style: TextStyle(
                               fontSize: 40,
                               fontWeight: FontWeight.bold
                           ),),

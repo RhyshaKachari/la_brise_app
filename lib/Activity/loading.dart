@@ -10,28 +10,28 @@ class Loading extends StatefulWidget {
 }
 
 class _LoadingState extends State<Loading> {
-  late String temp;
-  late String hum ;
-  late String air_speed ;
-  late String des;
-  late String main;
+  // late String temp;
+  // late String hum ;
+  // late String air_speed ;
+  // late String des;
+  // late String main;
+  // late String icon ;
 
+  var city_name = "Guwahati";
   void startApp()async{
-    worker instance = worker(location: "Mumbai");
+    worker instance = worker(location: city_name);
     await instance.getData();
 
-    temp = instance.temp ;
-    hum = instance.humidity ;
-    air_speed = instance.air_speed ;
-    des = instance.description;
-    main = instance.main ;
+
    Future.delayed(Duration(seconds: 2), () {
      Navigator.pushReplacementNamed(context, '/home' , arguments: {
-       "temp_value" : temp,
-       "hum_value" : hum,
-       "air_speed_value" : air_speed ,
-       "des_value" : des ,
-       "main_value" : main
+       "temp_value" : instance.temp ,
+       "hum_value" : instance.humidity ,
+       "air_speed_value" : instance.air_speed ,
+       "des_value" : instance.description ,
+       "main_value" : instance.main,
+       "icon_value" : instance.icon,
+       "city_value" : city_name,
      });
    });
 
