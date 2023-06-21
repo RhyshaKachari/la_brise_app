@@ -1,4 +1,6 @@
 
+// import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:la_brise/Activity/home.dart';
 import 'package:la_brise/Activity/loading.dart';
@@ -13,6 +15,7 @@ void main() async{
     routes: {
       "/" : (context) => Loading(),
       "/home" : (context) => Home(),
+      "/loading" : (context) => Loading(),
     },
   ));
 }
