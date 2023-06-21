@@ -51,11 +51,11 @@ class worker{
       icon = getIcon ;
     }
     catch(e){
-      temp = "Can't Find Data";
-      humidity = "Can't Find Data";
-      air_speed = "Can't Find Data";
+      temp = "NA";
+      humidity = "NA";
+      air_speed = "NA";
       description = "Can't Find Data" ;
-      main = "Can't Find Data" ;
+      main = "NA" ;
       icon = "02d";
     }
 
