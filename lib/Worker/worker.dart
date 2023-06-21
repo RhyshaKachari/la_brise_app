@@ -15,6 +15,7 @@ class worker{
   late String air_speed;
   late String description;
   late String main;
+  late String icon;
 
 //method
 
@@ -40,13 +41,14 @@ class worker{
       Map weather_main_data = weather_data[0];
       String getMain_des = weather_main_data['main'];
       String getDesc = weather_main_data["description"];
-
+      String getIcon = weather_main_data["icon"].toString();
       //Assigning Values
       temp = getTemp;
       humidity = getHumidity;
       air_speed = getAir_speed;
       description = getDesc ;
       main = getMain_des ;
+      icon = getIcon ;
     }
     catch(e){
       temp = "Can't Find Data";
@@ -54,6 +56,7 @@ class worker{
       air_speed = "Can't Find Data";
       description = "Can't Find Data" ;
       main = "Can't Find Data" ;
+      icon = "02d";
     }
 
   }
