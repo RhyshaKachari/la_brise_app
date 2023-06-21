@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_config/flutter_config.dart';
 import 'package:la_brise/Worker/worker.dart';
+import 'package:weather_icons/weather_icons.dart';
 // import 'package:gradient_app_bar/gradient_app_bar.dart';
 
 class Home extends StatefulWidget {
@@ -55,6 +56,7 @@ class _HomeState extends State<Home> {
     final _random = new Random();
     var city = city_name[_random.nextInt(city_name.length)];
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(0),
         child: AppBar(
@@ -126,11 +128,27 @@ class _HomeState extends State<Home> {
                   Expanded(
                     child: Container(
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(24),
+                          borderRadius: BorderRadius.circular(14),
                           color: Colors.white.withOpacity(0.5)),
                       margin: EdgeInsets.symmetric(horizontal: 25),
                       padding: EdgeInsets.all(26),
-                      child: Text("Text"),
+                      child: Row(
+                        children: [
+                          // Image.network(""),
+                          Column(
+                            children: [
+                              Text("Scattered Clouds", style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),),
+                              Text("In Ahmedabad",style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),),
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -139,13 +157,25 @@ class _HomeState extends State<Home> {
                  children: [
                    Expanded(
                     child: Container(
-                      height: 300,
+                      height: 225,
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(24),
+                          borderRadius: BorderRadius.circular(14),
                           color: Colors.white.withOpacity(0.5)),
                       margin: EdgeInsets.symmetric(horizontal: 25 , vertical: 10),
                       padding: EdgeInsets.all(26),
-                      child: Text("Text"),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                         Icon(Icons.device_thermostat),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text("41" , style: TextStyle(fontSize: 70),),
+                              Text("C" , style: TextStyle(fontSize: 30),)
+                            ],
+                          )
+                        ],
+                      ),
                     ),
               ),
                  ],
@@ -157,29 +187,59 @@ class _HomeState extends State<Home> {
                Expanded(
                 child: Container(
                 decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(24),
+                borderRadius: BorderRadius.circular(14),
           color: Colors.white.withOpacity(0.5)),
         margin: EdgeInsets.fromLTRB(20, 0, 10, 0),
       padding: EdgeInsets.all(26),
                   height: 200,
-      child: Text("Text"),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Icon(Icons.waves),
+            ],
+          ),
+          SizedBox(height: 20,),
+          Text("20.9", style: TextStyle(
+            fontSize: 40,
+            fontWeight: FontWeight.bold
+          ),),
+          Text("km/hr")
+        ],
+      ),
     ),
               ),
                    Expanded(
                     child: Container(
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(24),
+                          borderRadius: BorderRadius.circular(14),
                           color: Colors.white.withOpacity(0.5)),
                       margin: EdgeInsets.fromLTRB(10, 0, 20, 0),
                       padding: EdgeInsets.all(26),
                       height: 200,
-                      child: Text("Text"),
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Icon(Icons.water_drop),
+                            ],
+                          ),
+                          SizedBox(height: 20,),
+                          Text("60", style: TextStyle(
+                              fontSize: 40,
+                              fontWeight: FontWeight.bold
+                          ),),
+                          Text("Percent")
+                        ],
+                      ),
                     ),
                   ),
                 ],
               ),
               Container(
-                padding: EdgeInsets.all(10),
+                padding: EdgeInsets.all(30),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
