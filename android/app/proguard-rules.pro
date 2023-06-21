@@ -1,0 +1,1 @@
+-keep classcom.example.la_brise.BuildConfig{*;}
