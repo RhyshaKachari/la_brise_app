@@ -52,24 +52,28 @@ class _LoadingState extends State<Loading> {
     }
     startApp(city_name);
     return Scaffold(
-      body: Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Image.asset("images/newicon.webp",height: 240 ,width: 240, ),
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image.asset("images/newicon.webp",height: 240 ,width: 240, ),
+            SizedBox(height: 30,),
+            Text("Weather App", style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500 ,color: Colors.white),),
+           SizedBox(height: 15,),
+            Text("Made by Rhysha",
+            style:  GoogleFonts.lato(
+              fontSize: 18,color: Colors.white
+            ),),
           SizedBox(height: 30,),
-          Text("Weather App", style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500 ,color: Colors.white),),
-         SizedBox(height: 15,),
-          Text("Made by Rhysha",
-          style:  GoogleFonts.lato(
-            fontSize: 18,color: Colors.white
-          ),),
-        SizedBox(height: 30,),
-        SpinKitCircle(
-          color: Colors.white,
-          size: 50.0),
-        ],
-      ),
+          SpinKitCircle(
+            color: Colors.white,
+            size: 50.0),
+          ],
+        ),
+        ),
       ),
       backgroundColor: Colors.black,
     );
